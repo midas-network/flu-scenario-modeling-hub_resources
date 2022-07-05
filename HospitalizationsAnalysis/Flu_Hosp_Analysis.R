@@ -7,9 +7,10 @@ library(purrr)
 library(MMWRweek)
 library(cdcfluview)
 
-# download hospital capacity data
+# download hospital capacity dataset 
 
-setwd("C:/My Documents/Cecile/CoV/ScenarioHub")
+setwd("C:/My Documents/Cecile/CoV/ScenarioHub/flu-scenario-modeling-hub_resources/HospitalizationsAnalysis")
+
 
 ## download HHS dataset from API, 2020-present
 download.file("https://healthdata.gov/api/views/anag-cw7u/rows.csv?accessType=DOWNLOAD","US_HHS_flu_COVID.csv")
