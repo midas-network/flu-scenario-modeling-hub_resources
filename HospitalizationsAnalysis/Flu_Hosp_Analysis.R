@@ -9,7 +9,7 @@ library(cdcfluview)
 
 # download hospital capacity dataset 
 
-setwd("C:/My Documents/Cecile/CoV/ScenarioHub/flu-scenario-modeling-hub_resources/HospitalizationsAnalysis")
+setwd("HospitalizationsAnalysis")
 
 
 ## download HHS dataset from API, 2020-present
