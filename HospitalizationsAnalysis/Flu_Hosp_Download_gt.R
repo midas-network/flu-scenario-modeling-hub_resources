@@ -198,7 +198,7 @@ historic=eiplist %>% bind_rows(ihsplist) %>% bind_rows(flusurvtot) %>%
 
 ## 2020-21 and 2021-22 data not yet loaded on package so have to download from https://gis.cdc.gov/grasp/FluView/FluHospRates.html
     
-flusurv202022=read.csv("HospitalizationsAnalysis/FluSurveillance_Custom_Download_Data_2020_2022b.csv", skip=2) %>%
+flusurv202022=read.csv("HospitalizationsAnalysis/FluSurveillance_Custom_Download_Data_2020_2022.csv", skip=2) %>%
   mutate(CUMULATIVE.RATE2=case_when(CUMULATIVE.RATE=="null" ~ 0, 
                                     CUMULATIVE.RATE!="null" ~ as.numeric(as.character(CUMULATIVE.RATE)))) %>%
   dplyr::select(-CUMULATIVE.RATE) %>%
