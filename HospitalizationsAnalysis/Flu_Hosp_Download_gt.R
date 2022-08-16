@@ -13,7 +13,7 @@ library(cdcfluview)
 # download hospital capacity dataset from HHS 
 ###############################
 
-setwd("C:/My Documents/Cecile/CoV/ScenarioHub/flu-scenario-modeling-hub_resources")
+setwd("C:/My Documents/Cecile/CoV/ScenarioHub/flu-scenario-modeling-hub_resources2")
 
 ## download HHS dataset from API, 2020-present. Use the state-level time series version, rather than facilities,
 ## since it's what's used for Flusight and has better flu variables
@@ -192,13 +192,28 @@ flusurvtot= hospitalizations(surveillance_area="flusurv")
 ## combining all 3 types of sites, 2003-2020
 historic=eiplist %>% bind_rows(ihsplist) %>% bind_rows(flusurvtot) %>%
   arrange(surveillance_area,region,age, wk_start) %>% dplyr::select (-mmwrid) %>%
-  filter (age < 7) # age categories above 7 not labelled
-
+  filter (age < 7) %>% # age categories above 7 not labelled
+  #filling in missing season labels when CA was the only reporting state
+ mutate(sea_label=case_when(is.na(sea_label) & wk_start>as.Date("2003-08-31") &
+                                               wk_start<as.Date("2004-09-01") ~ "2003-04",
+                            is.na(sea_label) & wk_start>as.Date("2004-08-31") &
+                              wk_start<as.Date("2005-09-01") ~ "2004-05",
+                            is.na(sea_label) & wk_start>as.Date("2005-08-31") &
+                              wk_start<as.Date("2006-09-01") ~ "2005-06",
+                            is.na(sea_label) & wk_start>as.Date("2006-08-31") &
+                              wk_start<as.Date("2007-09-01") ~ "2006-07",
+                            is.na(sea_label) & wk_start>as.Date("2007-08-31") &
+                              wk_start<as.Date("2008-09-01") ~ "2007-08",
+                            is.na(sea_label) & wk_start>as.Date("2008-08-31") &
+                              wk_start<as.Date("2009-09-01") ~ "2008-09",
+                            !is.na(sea_label) ~ sea_label)) %>%
+  mutate(sea_description=paste("Season", sea_label))
+  
 ## Adding the most recent seasons 2020-21 and 2021-22
 
 ## 2020-21 and 2021-22 data not yet loaded on package so have to download from https://gis.cdc.gov/grasp/FluView/FluHospRates.html
     
-flusurv202022=read.csv("HospitalizationsAnalysis/FluSurveillance_Custom_Download_Data_2020_2022.csv", skip=2) %>%
+flusurv202022=read.csv("HospitalizationsAnalysis/FluSurveillance_Custom_Download_Data_2020_2022_updated.csv", skip=2) %>%
   mutate(CUMULATIVE.RATE2=case_when(CUMULATIVE.RATE=="null" ~ 0, 
                                     CUMULATIVE.RATE!="null" ~ as.numeric(as.character(CUMULATIVE.RATE)))) %>%
   dplyr::select(-CUMULATIVE.RATE) %>%
@@ -229,12 +244,7 @@ flusurv202022=read.csv("HospitalizationsAnalysis/FluSurveillance_Custom_Download
   dplyr::select(-SEX.CATEGORY,-RACE.CATEGORY,-MMWR.YEAR)  %>%
   arrange(surveillance_area, region, age, age_label,
           season, sea_description, sea_label,
-          wk_start, wk_end, year_wk_num) %>%
-group_by(surveillance_area, region, age, age_label,
-        season, sea_description, sea_label,
-        wk_start, wk_end, year_wk_num) %>%
-  summarize(rate=mean(rate,na.rm=T),
-            weeklyrate=mean(weeklyrate,na.rm=T))
+          wk_start, wk_end, year_wk_num) 
 
 ## Note that most weekly incident rates are missing in 2020-21 given very low counts
 ## 2020-21 has so few flu hospitalizations, probably best to ignore
@@ -262,8 +272,10 @@ g1
 ggsave("HospitalizationsAnalysis/FluSurvNetBySeasonAndAge.png", g1, width=13, height=9)
 
 ## Cumulative hospitalizations
-g2 <- ggplot(subset(allflusurv, (surveillance_area =="FluSurv-NET" & 
-                                   region=="Entire Network")), group=age_label) +
+
+
+g2 <- ggplot(subset(allflusurv, (surveillance_area =="IHSP" & 
+                                   region=="Utah")), group=age_label) +
   geom_line(aes(wk_start, rate, color=age_label), lwd=0.9) +
   facet_wrap(~sea_description, scale="free", ncol=4)+
   theme(
@@ -273,6 +285,20 @@ g2 <- ggplot(subset(allflusurv, (surveillance_area =="FluSurv-NET" &
 g2
 
 ggsave("HospitalizationsAnalysis/FluSurvNetCumRatesBySeasonAndAge.png", g2, width=13, height=9)
+
+
+g2 <- ggplot(subset(allflusurv, (surveillance_area =="EIP" & 
+                                   region=="California")), group=age_label) +
+  geom_line(aes(wk_start, weeklyrate, color=age_label), lwd=0.9) +
+  facet_wrap(~sea_description, scale="free", ncol=4)+
+  theme(
+    panel.grid = element_blank(),
+    strip.background = element_blank() )+
+  ylab("Hospitalization rate per 100,000") + xlab("Date") + ggtitle("FluSurvNet")
+g2
+
+ggsave("HospitalizationsAnalysis/CABySeasonAndAge.png", g2, width=13, height=9)
+
 
 
 g2 <- ggplot(subset(allflusurv, (surveillance_area =="IHSP" & 
