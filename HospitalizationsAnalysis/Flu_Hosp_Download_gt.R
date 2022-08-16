@@ -13,7 +13,6 @@ library(cdcfluview)
 # download hospital capacity dataset from HHS 
 ###############################
 
-setwd("C:/My Documents/Cecile/CoV/ScenarioHub/flu-scenario-modeling-hub_resources2")
 
 ## download HHS dataset from API, 2020-present. Use the state-level time series version, rather than facilities,
 ## since it's what's used for Flusight and has better flu variables
