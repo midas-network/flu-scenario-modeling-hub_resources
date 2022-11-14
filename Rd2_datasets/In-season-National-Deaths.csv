@@ -1,0 +1,11 @@
+﻿target,location,quantile,value,start_date,end_date,type
+cum_deaths,US,0.05,40,2022-10-05,2022-10-12,quantile
+cum_deaths,US,0.95,140,2022-10-05,2022-10-12,quantile
+cum_deaths,US,0.05,170,2022-10-05,2022-10-19,quantile
+cum_deaths,US,0.95,460,2022-10-05,2022-10-19,quantile
+cum_deaths,US,0.05,360,2022-10-05,2022-10-26,quantile
+cum_deaths,US,0.95,1000,2022-10-05,2022-10-26,quantile
+cum_deaths,US,0.05,730,2022-10-05,2022-11-02,quantile
+cum_deaths,US,0.95,2100,2022-10-05,2022-11-02,quantile
+cum_deaths,US,0.05,1300,2022-10-05,2022-11-09,quantile
+cum_deaths,US,0.95,3600,2022-10-05,2022-11-09,quantile
