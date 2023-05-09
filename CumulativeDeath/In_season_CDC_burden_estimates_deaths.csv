@@ -32,7 +32,7 @@ cum_deaths,US,0.975,52000,2022-10-01,2023-01-14,quantile
 cum_deaths,US,0.025,17000,2022-10-01,2023-01-21,quantile
 cum_deaths,US,0.975,52000,2022-10-01,2023-01-21,quantile
 cum_deaths,US,0.025,17000,2022-10-01,2023-01-28,quantile
-cum_deaths,US,0.975,53000,2022-10-01,2023-02-28,quantile
+cum_deaths,US,0.975,53000,2022-10-01,2023-01-28,quantile
 cum_deaths,US,0.025,18000,2022-10-01,2023-02-04,quantile
 cum_deaths,US,0.975,55000,2022-10-01,2023-02-04,quantile
 cum_deaths,US,0.025,18000,2022-10-01,2023-02-11,quantile
