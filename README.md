@@ -3,9 +3,6 @@
 Repository containing code to process target flu data and auxiliary calibration 
 datasets for Scenario Modeling Hub flu rounds.
 
-*The Flu Scenario Modeling Hub GitHub repository and website are under 
-construction and should be available soon*
-
 ## License
 
 All source code specific to the overall project is available under an 
