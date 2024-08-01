@@ -19,5 +19,5 @@ showing influenza lab-confirmed admissions in hospitals in 2020-2024.
 The data in this file provides estimates for weekly flu admissions (derived from
 `"previous_day_admission_influenza_confirmed"`), and in-patient flu deaths 
 (`"previous_day_deaths_influenza"`), as well as hospital coverages (no 
-hospitals reporting each week) for each outcome. ote that the dataset was 
+hospitals reporting each week) for each outcome. Note that the dataset was 
 paused in May 2024 so there will be no recent data for calibration.
