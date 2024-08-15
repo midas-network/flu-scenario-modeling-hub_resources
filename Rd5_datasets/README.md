@@ -31,4 +31,4 @@ hospitalizations, and applying an hospitalization fatality rate to obtain deaths
 This should be considered our death  target.
 **Notes:** data for earlier seasons are available in the Rd1_datasets, in the 
 [In-season-National-Burden.csv](https://github.com/midas-network/flu-scenario-modeling-hub_resources/blob/main/Rd1_datasets/In-season-National-Burden.csv) 
-file
+file.
