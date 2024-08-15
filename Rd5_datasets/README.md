@@ -21,3 +21,14 @@ The data in this file provides estimates for weekly flu admissions (derived from
 (`"previous_day_deaths_influenza"`), as well as hospital coverages (no 
 hospitals reporting each week) for each outcome. Note that the dataset was 
 paused in May 2024 so there will be no recent data for calibration.
+
+
+* `CumulativeDeaths_2022_2024.csv` has weekly cumulative death estimates from 
+the CDC model for the 2022-23 and 2023-24 seasons. Estimates are provided as 
+2,5 and 97.5% quantiles. This is a model based on reported hospitalizations 
+to Flusurvnet, factoring in underreporting and age distribution of 
+hospitalizations, and applying an hospitalization fatality rate to obtain deaths. 
+This should be considered our death  target.
+**Notes:** data for earlier seasons are available in the Rd1_datasets, in the 
+[In-season-National-Burden.csv](https://github.com/midas-network/flu-scenario-modeling-hub_resources/blob/main/Rd1_datasets/In-season-National-Burden.csv) 
+file
