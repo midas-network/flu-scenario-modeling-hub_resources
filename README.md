@@ -34,7 +34,8 @@ The repository contains additional data used for
     - [Round 2](./Rd2_datasets)
     - [Round 4](./Rd4_datasets)
     - [Round 5](./Rd5_datasets)
-    - [Round 6](./Rd4_datasets)
+    - [Round 6](./Rd6_datasets)
+    - [Round 7](./Rd7_datasets)
 
 ## License
 
