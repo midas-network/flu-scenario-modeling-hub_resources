@@ -10,8 +10,7 @@ This analysis draws on four California-specific and national data sources:
   counts reported by California facilities, though only at a coarse 4-group age 
   resolution (<5, 5-17, 18-64, 65+). 
 - **CA death certificate data** provides California-specific influenza-coded 
-  deaths with full age and geographic detail, though influenza is chronically 
-  underlisted as a cause of death.
+  deaths with full age and geographic detail.
 - **FluSurv-NET** (
   [CDC FluView Interactive — FluSurv-NET Hospitalization Rates](https://www.cdc.gov/fluview/overview/influenza-hospitalization-surveillance.html); 
   data accessible via [FluView GRASP](https://gis.cdc.gov/grasp/fluview/FluHospRates.html)) 
@@ -94,7 +93,7 @@ observable in the input data, since CDC's public burden-model inputs are point
 estimates only.
 
 
-<img src="./cumul_estimated_vs_confirm.png">
+<img src="./CA_cumul_estimated_vs_confirm_final.png">
 
 
 ## Uncertainty Propagation and Ensemble Methodology
@@ -116,13 +115,7 @@ sampling that reflects genuine uncertainty. Observed hospitalization and death
 counts themselves were treated using a Gamma-Poisson posterior (rather than as 
 exact fixed values or standard Poisson sampling), which avoids an artificial 
 collapse to zero-width intervals in sparse pediatric age groups (<5, 5-17) 
-where weekly counts are frequently zero but true underlying risk is not. We 
-also identified and excluded a small number of observed edge cases — namely, 
-two CDC-reported death-to-hospitalization ratios of exactly zero for pediatric 
-age groups in the 2011-12 (historically mild season) and 2021-22 seasons 
-(overlapping with COVID pandemic including school closures and NPIs). 
-California's own death-certificate data confirms non-zero pediatric flu 
-mortality in all recent seasons for which data are available.
+where weekly counts are frequently zero but true underlying risk is not.
 
 
 Each method's ratios were combined multiplicatively across hundreds of 
