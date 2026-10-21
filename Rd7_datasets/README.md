@@ -23,6 +23,7 @@ the last day of the week, which is the Saturday at the end of an MMWR week. Cumu
 provided per 100 population (percent); eg, if flu.coverage.sc_A=46.3 it means that 46.3% of a 
 given population group is vaccinated. No data is provided for scenario D. Teams should assume 0% 
 coverage in all age groups for scenario D.
+An `archive` folder is available, for past version of the file. 
 
 * `CA_flu_deaths_adjusted_cumulative_long.csv`: California Influenza Adjusted Deaths contains weekly 
 cumulative influenza death estimates for CA for the 2022-23, 2023-24, 2024-25, and 2025-26 seasons 
