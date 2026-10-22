@@ -15,8 +15,9 @@ for the 2024-2025 season and 2019-2020 season to be used in round 1 - 2026/2027 
 The data in this file provides weekly cumulative coverages by state and adult and child age groups to 
 apply to scenario A (same coverage as in the 2019-20 season), B (same coverage as in the 2024-25 season)
 and C (same coverage as in the 2024-25 season, but no children vaccination). Weekly estimates are 
-interpolated based on the reported coverage of the flu vaccine in the 2019-2020 and 2024-2025 flu seasons 
-using Piecewise Cubic Hermite Interpolating Polynomial. The data in this file can be used as is 
+interpolated based on the reported coverage of the flu vaccine in the [NIS database](https://data.cdc.gov/Flu-Vaccinations/Influenza-Vaccination-Coverage-for-All-Ages-6-Mont/vh55-3he6/about_data):
+we select the 2019-2020 and 2024-2025 flu seasons and use Piecewise Cubic Hermite Interpolating Polynomial
+for interpolation. The data in this file can be used as is 
 (no adjustment to coverage should be needed). 
 Age groups can be collapsed based on provided pop sizes. Week dates (Week_Ending_Sat) are provided as 
 the last day of the week, which is the Saturday at the end of an MMWR week. Cumulative coverage is 
